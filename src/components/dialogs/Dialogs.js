@@ -1,24 +1,27 @@
 import React from 'react'
 import './Dialogs.css'
 
+import DialogsItem from './dialogsItem/DialogsItem'
+import Message from './message/Message'
 
 function Dialogs() {
     return (
         <div className="dialogs">
-            <div className="message">
-              <p>Иван Иванов</p>
-              <p>Привет, как дела?</p>
-            </div>
-            <div className="message">
-              <p>Илон Маск</p>
-              <p>Го завтра на Марс?</p>
-            </div>
-            <div className="message">
-              <p>Билл Гейтс</p>
-              <p>Все еще жду новый чип</p>
-            </div>
-            <input type="text"/>
-            <button>Отправить</button>
+                <div className="dialog">
+                  <DialogsItem name={'Иван Иванов'} id={'1'}/>
+                  <DialogsItem  name={'Илон Маск'} id={'2'}  />
+                  <DialogsItem name={'Билл Гейтс'} id={'3'}/>
+                </div>
+                <div className="messages">
+                  <Message message={'Привет'}/>
+                  <Message message={'Го на Марс'}/>
+                  <Message message={'Где мой чип?'}/>
+                </div>
+              <div className="code">
+                <input type="text"/>
+                <button>Отправить</button>
+              </div>
+            
         </div>
     )
   }
