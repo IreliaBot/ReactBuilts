@@ -4,8 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import {addPost} from './data/Data.js'
+import {addPost, onMessageChange} from './data/Data.js'
 import {sendMessage} from './data/Data.js';
+import {onPostChange } from './data/Data.js';
+
 
 export let rerenderTree = (state) => {
 ReactDOM.render(
@@ -14,6 +16,8 @@ ReactDOM.render(
           state = {state}
           addPost={addPost} 
           sendMessage={sendMessage}
+          onPostChange={onPostChange}
+          onMessageChange={onMessageChange}
         />
       </React.StrictMode>,
       document.getElementById('root')

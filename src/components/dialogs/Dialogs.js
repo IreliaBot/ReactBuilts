@@ -13,7 +13,10 @@ function Dialogs(props) {
   let sendMessage = () => {
     props.sendMessage(ref.current.value) 
     }
-
+  let onMessageChange = () => {
+    props.onMessageChange(ref.current.value) 
+    }
+  console.log(props);
     return (
         <div className="dialogs">
               <div className="dialog">
@@ -23,7 +26,7 @@ function Dialogs(props) {
                   {props.dialogsPage.messageItems.map((e)=> <Message message={e.message} id={e.id}/> )}                 
               </div>
               <div className="code">
-                  <input ref={ref} type="text" placeholder="Enter your message"/>
+                  <input onChange={onMessageChange}  ref={ref} type="text" placeholder="Enter your message"/>
                   <button onClick={sendMessage}>Отправить</button>
               </div>
             

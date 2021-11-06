@@ -5,7 +5,8 @@
   import Profile from './components/profile/Profile.js'
   import Dialogs from './components/dialogs/Dialogs.js'
   import {BrowserRouter, Route, Switch} from 'react-router-dom'
-
+import { onMessageChange } from './data/Data'
+  
   
 
   function App(props) {
@@ -17,9 +18,24 @@
             <Navbar navMenu={props.state.navMenu}/>
             {/* Нужно поставить react-router-dom ^5.2.0 чтобы switch работал. Или ^6 что-бы вместо него рабоатл Routes. Но так, как в методичке сейчас рабоать не будет.*/}
             <Switch>
-              <Route exact path='/'  render={ ()=> <Profile profilePage={props.state.profilePage} addPost={props.addPost} />}/>
-              <Route exact path='/profile'  render = {()=> <Profile profilePage = {props.state.profilePage} addPost={props.addPost}/>} />
-              <Route exact path='/dialogs'  render = {()=> <Dialogs dialogsPage={props.state.dialogsPage} dialogsPage={props.state.dialogsPage} sendMessage={props.sendMessage} />}/>
+              <Route exact path='/'  render={ ()=> <Profile 
+                profilePage={props.state.profilePage} 
+                addPost={props.addPost} 
+                newPostText={props.state.profilePage.newPostText} 
+                onPostChange={props.onPostChange}
+              />}/>
+              <Route exact path='/profile'  render = {()=> <Profile 
+                profilePage = {props.state.profilePage} 
+                addPost={props.addPost} 
+                newPostText={props.state.profilePage.newPostText}
+                onPostChange={props.onPostChange}
+              />} />
+              <Route exact path='/dialogs'  render = {()=> <Dialogs 
+                dialogsPage={props.state.dialogsPage} 
+                dialogsPage={props.state.dialogsPage} 
+                sendMessage={props.sendMessage} 
+                onMessageChange={onMessageChange}
+              />}/>
             </Switch>
           </BrowserRouter> 
         </div>  
