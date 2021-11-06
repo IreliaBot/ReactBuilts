@@ -1,3 +1,5 @@
+import {rerenderTree} from './../render'
+
 let state = {
 
     profilePage: {
@@ -20,13 +22,16 @@ let state = {
           ]
      },
      navMenu: {
-       friends: [
-           {ava: 1, name: 'Vasya'},
-           {ava: 1, name: 'Nikita'},
-           {ava: 1, name: 'Oleg'}
-       ]    
-     }   
+        friends: [
+            {ava: 1, name: 'Vasya'},
+            {ava: 1, name: 'Nikita'},
+            {ava: 1, name: 'Oleg'}
+        ]    
+      } 
+       
 }
+export default state
+
 
 export let addPost = (postText)=> {
     let newPost = {
@@ -34,7 +39,16 @@ export let addPost = (postText)=> {
         id: 4,
         likes: 0
     }
-    state.profilePage.postsItems.push(newPost)
-    console.log(state);
+    state.profilePage.postsItems.unshift(newPost)
+    rerenderTree(state)
 }
-export default state
+
+
+export let sendMessage = (message) => {
+    let newMessage= {
+        text: message,
+        id: 4
+    }
+        state.dialogsPage.messageItems.unshift(newMessage)
+        rerenderTree(state) 
+    }

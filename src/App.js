@@ -19,7 +19,7 @@
             <Switch>
               <Route exact path='/'  render={ ()=> <Profile profilePage={props.state.profilePage} addPost={props.addPost} />}/>
               <Route exact path='/profile'  render = {()=> <Profile profilePage = {props.state.profilePage} addPost={props.addPost}/>} />
-              <Route exact path='/dialogs'  render = {()=> <Dialogs dialogsPage={props.state.dialogsPage} dialogsPage={props.state.dialogsPage} />}/>
+              <Route exact path='/dialogs'  render = {()=> <Dialogs dialogsPage={props.state.dialogsPage} dialogsPage={props.state.dialogsPage} sendMessage={props.sendMessage} />}/>
             </Switch>
           </BrowserRouter> 
         </div>  

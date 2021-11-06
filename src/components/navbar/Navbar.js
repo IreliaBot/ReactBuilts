@@ -10,6 +10,7 @@ function Navbar(props) {
           <NavLink to='/users'>Users</NavLink>
           <NavLink to='/dialogs'>Dialogs</NavLink>
           <div className='friends'>
+          
             <p>Friends:</p>
             {props.navMenu.friends.map((e)=> {
               return (
@@ -18,8 +19,10 @@ function Navbar(props) {
                 <br/>
                 <p>{e.name}</p>
                 </NavLink>
-              )   
-            })}             
+              )
+              
+            })}    
+          
           </div>
         </div>
     )
