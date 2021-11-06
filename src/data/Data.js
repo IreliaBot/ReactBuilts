@@ -25,8 +25,16 @@ let state = {
            {ava: 1, name: 'Nikita'},
            {ava: 1, name: 'Oleg'}
        ]    
-     }
-      
-       
+     }   
+}
+
+export let addPost = (postText)=> {
+    let newPost = {
+        text: postText,
+        id: 4,
+        likes: 0
+    }
+    state.profilePage.postsItems.push(newPost)
+    console.log(state);
 }
 export default state

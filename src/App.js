@@ -17,8 +17,8 @@
             <Navbar navMenu={props.state.navMenu}/>
             {/* Нужно поставить react-router-dom ^5.2.0 чтобы switch работал. Или ^6 что-бы вместо него рабоатл Routes. Но так, как в методичке сейчас рабоать не будет.*/}
             <Switch>
-              <Route exact path='/'  render={ ()=> <Profile profilePage={props.state.profilePage} />}/>
-              <Route exact path='/profile'  render = {()=> <Profile profilePage = {props.state.profilePage}/>} />
+              <Route exact path='/'  render={ ()=> <Profile profilePage={props.state.profilePage} addPost={props.addPost} />}/>
+              <Route exact path='/profile'  render = {()=> <Profile profilePage = {props.state.profilePage} addPost={props.addPost}/>} />
               <Route exact path='/dialogs'  render = {()=> <Dialogs dialogsPage={props.state.dialogsPage} dialogsPage={props.state.dialogsPage} />}/>
             </Switch>
           </BrowserRouter> 
