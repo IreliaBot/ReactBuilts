@@ -6,8 +6,9 @@
   import Dialogs from './components/dialogs/Dialogs.js'
   import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
+  
 
-  function App() {
+  function App(props) {
     return (
       
         <div className="wrapper">
@@ -16,9 +17,9 @@
             <Navbar/>
             {/* Нужно поставить react-router-dom ^5.2.0 чтобы switch работал. Или ^6 что-бы вместо него рабоатл Routes. Но так, как в методичке сейчас рабоать не будет.*/}
             <Switch>
-              <Route exact path='/' component={Profile} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/dialogs' component={Dialogs} />
+              <Route exact path='/'  component={Profile}/>
+              <Route exact path='/profile'  render = {()=> <Profile postsItems = {props.postsItems}/>} />
+              <Route exact path='/dialogs'  render = {()=> <Dialogs dialogNames={props.dialogNames} messageItems={props.messageItems} />}/>
             </Switch>
           </BrowserRouter> 
         </div>  
