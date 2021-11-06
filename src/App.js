@@ -14,6 +14,7 @@
           <BrowserRouter> 
             <Header/>
             <Navbar/>
+            {/* Нужно поставить react-router-dom ^5.2.0 чтобы switch работал. Или ^6 что-бы вместо него рабоатл Routes. Но так, как в методичке сейчас рабоать не будет.*/}
             <Switch>
               <Route exact path='/' component={Profile} />
               <Route exact path='/profile' component={Profile} />
