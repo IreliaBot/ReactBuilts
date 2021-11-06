@@ -1,4 +1,4 @@
-import {rerenderTree} from './../render'
+import {rerenderTree} from './../render.js'
 
 let state = {
 
@@ -35,7 +35,7 @@ export default state
 
 export let addPost = (postText)=> {
     let newPost = {
-        text: postText,
+        message: postText,
         id: 4,
         likes: 0
     }
@@ -46,7 +46,7 @@ export let addPost = (postText)=> {
 
 export let sendMessage = (message) => {
     let newMessage= {
-        text: message,
+        message: message,
         id: 4
     }
         state.dialogsPage.messageItems.unshift(newMessage)
