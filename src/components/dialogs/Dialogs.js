@@ -10,10 +10,10 @@ function Dialogs(props) {
     return (
         <div className="dialogs">
               <div className="dialog">
-                  {props.dialogNames.map((e)=> <DialogsItem name={e.name} id={e.id}/> )}
+                  {props.dialogsPage.dialogNames.map((e)=> <DialogsItem name={e.name} id={e.id}/> )}
               </div>
               <div className="messages">
-                  {props.messageItems.map((e)=> <Message message={e.message} id={e.id}/> )}                 
+                  {props.dialogsPage.messageItems.map((e)=> <Message message={e.message} id={e.id}/> )}                 
               </div>
               <div className="code">
                   <input type="text" placeholder="Enter your message"/>

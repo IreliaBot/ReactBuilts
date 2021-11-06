@@ -3,30 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import state from  './data/Data.js'
 
-let postsItems = [
-  {message: 'Hi, world', likes: 0},
-  {message: 'I`m Elon Mask, really', likes: 3},
-  {message: 'Give me some bitcoins', likes: 10}
-]
-
-let dialogNames = [
-  {name:'Ivan Ivanov', id: 1},
-  {name:'Ilon Mask', id: 2},
-  {name:'Bill Gates', id: 2}
-]
-let messageItems = [
-  {message:'Hi!', id: 1},
-  {message:'Go on the Mars', id: 1},
-  {message:'Where is my chip?', id: 1}
-]
 
 ReactDOM.render(
   <React.StrictMode>
     <App 
-      postsItems={postsItems} 
-      messageItems={messageItems} 
-      dialogNames={dialogNames} 
+      state = {state}
     />
   </React.StrictMode>,
   document.getElementById('root')
