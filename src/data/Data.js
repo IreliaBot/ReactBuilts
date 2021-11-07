@@ -1,4 +1,4 @@
-import {rerenderTree} from './../render.js'
+
 
 let state = {
 
@@ -40,11 +40,10 @@ export default state
 export let addPost = (postText)=> {
     let newPost = {
         message: postText,
-        id: 4,
         likes: 0
     }
     state.profilePage.postsItems.unshift(newPost)
-    state.profilePage.newPostText = ''
+    
     rerenderTree(state)
 }
 
@@ -65,3 +64,11 @@ export let onPostChange = (text) => {
         state.dialogsPage.newMessageText = text
         rerenderTree(state)
         }
+
+        let rerenderTree = () => {
+        console.log('It is fake function'); 
+         }
+         export let subscribe = (observer) => {
+        rerenderTree = observer
+        }
+       

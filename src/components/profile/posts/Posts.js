@@ -8,7 +8,6 @@ function Posts(props){
 
     let addPost = () => {
         props.addPost(postText.current.value)
-        {console.log(postText.current.value)}
     }
     let onPostChange = () => {
         props.onPostChange(postText.current.value) 
