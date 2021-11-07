@@ -5,7 +5,7 @@
   import Profile from './components/profile/Profile.js'
   import Dialogs from './components/dialogs/Dialogs.js'
   import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import { onMessageChange } from './data/Data'
+
   
   
 
@@ -34,7 +34,7 @@ import { onMessageChange } from './data/Data'
                 dialogsPage={props.state.dialogsPage} 
                 dialogsPage={props.state.dialogsPage} 
                 sendMessage={props.sendMessage} 
-                onMessageChange={onMessageChange}
+                onMessageChange={props.onMessageChange}
               />}/>
             </Switch>
           </BrowserRouter> 
