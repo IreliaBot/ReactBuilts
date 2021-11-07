@@ -1,4 +1,7 @@
-
+const ADD_POST = 'ADD-POST'
+const POST_CHANGE = 'POST-CHANGE'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+const MESSAGE_CHANGE = 'MESSAGE-CHANGE'
 
 let store = {
      _state : {
@@ -76,24 +79,24 @@ let store = {
             return this._state
     },
     dispatch(action){
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 message: this._state.profilePage.newPostText,
                 likes: 0
             }
             this._state.profilePage.postsItems.unshift(newPost)          
             this.rerenderTree(this._state)
-        } else if (action.type === 'POST-CHANGE'){
+        } else if (action.type === POST_CHANGE){
             this._state.profilePage.newPostText = action.text
             this.rerenderTree(this._state)
-        }else if (action.type ===  'SEND-MESSAGE'){
+        }else if (action.type ===  SEND_MESSAGE){
             let newMessage= {
                 message:this._state.dialogsPage.dialogNames.newMessageText,
                 id: 4
             }
                 this._state.dialogsPage.messageItems.unshift(newMessage)
                 this.rerenderTree(this._state) 
-        }else if (action.type === 'MESSAGE-CHANGE'){
+        }else if (action.type === MESSAGE_CHANGE){
             this._state.dialogsPage.dialogNames.newMessageText = action.text
             this.rerenderTree(this._state)
         }
@@ -101,7 +104,34 @@ let store = {
 
 
 }
+export let addPostAC = () => {
+    return {
+        type:'ADD-POST',
+        id: 1
+}
+    } 
 
+
+    export let onPostChangeAC = (text) => {
+return {
+    type:'POST-CHANGE',
+    text:text
+}
+} 
+
+export let sendMessageAC = () => {
+    return {
+        type:'SEND-MESSAGE',
+        id: 1
+    }
+}
+
+export let onMessageChangeAC = (text) => {
+      return {
+        type:'MESSAGE-CHANGE',
+        text:text
+      }
+    } 
 
 
 
