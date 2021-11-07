@@ -12,10 +12,11 @@ ReactDOM.render(
       <React.StrictMode>
         <App 
           state = {state}
-          addPost={store.addPost.bind(store)} 
-          sendMessage={store.sendMessage.bind(store)}
-          onPostChange={store.onPostChange.bind(store)}
-          onMessageChange={store.onMessageChange.bind(store)}
+          dispatch={store.dispatch.bind(store)}
+        //   addPost={store.addPost.bind(store)} 
+        //   onPostChange={store.onPostChange.bind(store)}
+        //   sendMessage={store.sendMessage.bind(store)}
+        //   onMessageChange={store.onMessageChange.bind(store)}
         />
       </React.StrictMode>,
       document.getElementById('root')

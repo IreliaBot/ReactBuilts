@@ -38,44 +38,71 @@ let store = {
     
     
     
-    addPost(postText) {
-        let newPost = {
-            message: postText,
-            likes: 0
-        }
-        this._state.profilePage.postsItems.unshift(newPost)
+    // addPost(postText) {
+    //     let newPost = {
+    //         message: postText,
+    //         likes: 0
+    //     }
+    //     this._state.profilePage.postsItems.unshift(newPost)
         
-        this.rerenderTree(this._state)
-    },
+    //     this.rerenderTree(this._state)
+    // },
     
     
-    sendMessage (message) {
-        let newMessage= {
-            message: message,
-            id: 4
-        }
-            this._state.dialogsPage.messageItems.unshift(newMessage)
-            this.rerenderTree(this._state) 
-        },
-    onPostChange (text) {
-            this._state.profilePage.newPostText = text
-            this.rerenderTree(this._state)
-            },
-    onMessageChange (text)  {
-            this._state.dialogsPage.newMessageText = text
-            this.rerenderTree(this._state)
-            },
+    // sendMessage (message) {
+    //     let newMessage= {
+    //         message: message,
+    //         id: 4
+    //     }
+    //         this._state.dialogsPage.messageItems.unshift(newMessage)
+    //         this.rerenderTree(this._state) 
+    // },
+    // onPostChange (text) {
+    //         this._state.profilePage.newPostText = text
+    //         this.rerenderTree(this._state)
+    // },
+    // onMessageChange (text)  {
+    //         this._state.dialogsPage.newMessageText = text
+    //         this.rerenderTree(this._state)
+    // },
     
     rerenderTree() {
             console.log('It is fake function'); 
-            },
+    },
     subscribe (observer)  {
             this.rerenderTree = observer
-            },
+    },
     getState(){
             return this._state
+    },
+    dispatch(action){
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                message: this._state.profilePage.newPostText,
+                likes: 0
             }
+            this._state.profilePage.postsItems.unshift(newPost)          
+            this.rerenderTree(this._state)
+        } else if (action.type === 'POST-CHANGE'){
+            this._state.profilePage.newPostText = action.text
+            this.rerenderTree(this._state)
+        }else if (action.type ===  'SEND-MESSAGE'){
+            let newMessage= {
+                message:this._state.dialogsPage.dialogNames.newMessageText,
+                id: 4
+            }
+                this._state.dialogsPage.messageItems.unshift(newMessage)
+                this.rerenderTree(this._state) 
+        }else if (action.type === 'MESSAGE-CHANGE'){
+            this._state.dialogsPage.dialogNames.newMessageText = action.text
+            this.rerenderTree(this._state)
+        }
+    },
+
+
 }
+
+
 
 
     export default store

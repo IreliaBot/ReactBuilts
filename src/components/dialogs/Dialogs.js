@@ -11,10 +11,13 @@ let ref = React.createRef()
 function Dialogs(props) {
   
   let sendMessage = () => {
-    props.sendMessage(ref.current.value) 
+    // props.sendMessage(ref.current.value) 
+    
+    props.dispatch({type:'SEND-MESSAGE'})
     }
   let onMessageChange = () => {
-    props.onMessageChange(ref.current.value) 
+    // props.onMessageChange(ref.current.value) 
+    props.dispatch({type:'MESSAGE-CHANGE',text: ref.current.value})
     }
   console.log(props);
     return (

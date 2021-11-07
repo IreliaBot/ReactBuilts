@@ -8,10 +8,11 @@ function Profile(props) {
     <div className='profile'>
       <ProfileInfo/>
       <Posts 
-        postsItems={props.profilePage.postsItems} 
-        addPost={props.addPost} 
+        postsItems={props.profilePage.postsItems}  
         newPostText={props.newPostText}
-        onPostChange={props.onPostChange}
+        dispatch={props.dispatch}
+        // addPost={props.addPost} 
+        // onPostChange={props.onPostChange}
       />
     </div>   
     )

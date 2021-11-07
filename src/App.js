@@ -20,21 +20,24 @@
             <Switch>
               <Route exact path='/'  render={ ()=> <Profile 
                 profilePage={props.state.profilePage} 
-                addPost={props.addPost} 
                 newPostText={props.state.profilePage.newPostText} 
-                onPostChange={props.onPostChange}
+                dispatch={props.dispatch}
+                // addPost={props.addPost} 
+                // onPostChange={props.onPostChange}
               />}/>
               <Route exact path='/profile'  render = {()=> <Profile 
                 profilePage = {props.state.profilePage} 
-                addPost={props.addPost} 
                 newPostText={props.state.profilePage.newPostText}
-                onPostChange={props.onPostChange}
+                dispatch={props.dispatch}
+                // addPost={props.addPost} 
+                // onPostChange={props.onPostChange}
               />} />
               <Route exact path='/dialogs'  render = {()=> <Dialogs 
                 dialogsPage={props.state.dialogsPage} 
                 dialogsPage={props.state.dialogsPage} 
-                sendMessage={props.sendMessage} 
-                onMessageChange={props.onMessageChange}
+                // sendMessage={props.sendMessage} 
+                // onMessageChange={props.onMessageChange}
+                dispatch={props.dispatch}
               />}/>
             </Switch>
           </BrowserRouter> 
