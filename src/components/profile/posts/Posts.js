@@ -1,6 +1,6 @@
 import React from 'react'
 import Post from './post/Post.js'
-import {addPostAC, onPostChangeAC} from '../../../data/Data'
+import {addPostAC, onPostChangeAC} from '../../../data/profileReducer'
 
 
 
