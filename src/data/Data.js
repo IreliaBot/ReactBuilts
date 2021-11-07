@@ -1,4 +1,7 @@
 import profileReduser from "./profileReducer"
+import dialogReduser from "./dialogsReducer"
+
+
 
 const ADD_POST = 'ADD-POST'
 const POST_CHANGE = 'POST-CHANGE'
@@ -84,23 +87,27 @@ let store = {
     dispatch(action){
 
         this._state.profilePage = profileReduser(this._state.profilePage, action)
-        this.rerenderTree(this._state) 
+        this.rerenderTree(this._state)
+
+        this._state.dialogsPage = dialogReduser(this._state.dialogsPage, action)
+        this.rerenderTree(this._state)
+
+         
 
 
 
-        if (action.type ===  SEND_MESSAGE){
-            let newMessage= {
-                message:this._state.dialogsPage.dialogNames.newMessageText,
-                id: 4
-            }
-                this._state.dialogsPage.messageItems.unshift(newMessage)
-                this.rerenderTree(this._state) 
-        }else if (action.type === MESSAGE_CHANGE){
-            this._state.dialogsPage.dialogNames.newMessageText = action.text
-            this.rerenderTree(this._state)
-        }
-    },
-
+        // if (action.type ===  SEND_MESSAGE){
+        //     let newMessage= {
+        //         message:this._state.dialogsPage.dialogNames.newMessageText,
+        //         id: 4
+        //     }
+        //         this._state.dialogsPage.messageItems.unshift(newMessage)
+        //         this.rerenderTree(this._state) 
+        // }else if (action.type === MESSAGE_CHANGE){
+        //     this._state.dialogsPage.dialogNames.newMessageText = action.text
+        //     this.rerenderTree(this._state)
+        // }
+    }
 
 }
 // export let addPostAC = () => {
@@ -118,19 +125,19 @@ let store = {
 // }
 // } 
 
-export let sendMessageAC = () => {
-    return {
-        type:'SEND-MESSAGE',
-        id: 1
-    }
-}
+// export let sendMessageAC = () => {
+//     return {
+//         type:'SEND-MESSAGE',
+//         id: 1
+//     }
+// }
 
-export let onMessageChangeAC = (text) => {
-      return {
-        type:'MESSAGE-CHANGE',
-        text:text
-      }
-    } 
+// export let onMessageChangeAC = (text) => {
+//       return {
+//         type:'MESSAGE-CHANGE',
+//         text:text
+//       }
+//     } 
 
 
 

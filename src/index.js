@@ -1,5 +1,5 @@
-
-import store from './data/Data.js';
+import store from './data/store.js';
+// import store from './data/Data.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -24,7 +24,11 @@ ReactDOM.render(
     }
     
     rerenderTree(store.getState())
-    store.subscribe(rerenderTree) 
+    store.subscribe(()=>{
+
+        rerenderTree(store.getState())
+        
+        }) 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

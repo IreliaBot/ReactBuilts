@@ -1,6 +1,6 @@
 import React from 'react'
 import './Dialogs.css'
-import {sendMessageAC, onMessageChangeAC} from './../../data/Data'
+import {sendMessageAC, onMessageChangeAC} from './../../data/dialogsReducer'
 import DialogsItem from './dialogsItem/DialogsItem'
 import Message from './message/Message'
 

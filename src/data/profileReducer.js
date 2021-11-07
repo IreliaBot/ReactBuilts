@@ -1,7 +1,18 @@
 const ADD_POST = 'ADD-POST'
 const POST_CHANGE = 'POST-CHANGE'
 
-let profileReduser = (action, state) => {
+
+let initialState = {
+
+    postsItems: [
+    { text: 'Hi, world', id: 1, likes: 0 },
+    { text: 'Im Elon Mask, really', id: 2, likes: 3 },
+    { text: 'Give me some bitcoins', id: 3, likes: 10 },
+    ],
+    newPostText: 'hello' 
+    }
+
+let profileReducer = (state = initialState,action) => {
     if (action.type === ADD_POST) {
         let newPost = {
             message: state.newPostText,
@@ -17,7 +28,7 @@ let profileReduser = (action, state) => {
        
     }
     
-export default profileReduser 
+export default profileReducer 
 
 export let addPostAC = () => {
     return {
